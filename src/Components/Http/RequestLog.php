@@ -21,7 +21,9 @@ abstract class RequestLog{
     }
 
     public static function replaceLast($row){
-        self::$history[count(self::$history) - 1] = $row;
+        if(self::$storageSize !== 0){
+            self::$history[count(self::$history) - 1] = $row;
+        }
     }
 
     public static function getLast(){
